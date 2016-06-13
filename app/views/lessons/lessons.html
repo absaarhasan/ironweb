@@ -1,0 +1,87 @@
+
+<section class="section odd top">
+    <div class="container">
+        <h2 class="text-center">Cours de musique en ligne</h2>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4 box-outer">
+
+                <div class="box download">
+                    <p>Débutants à experts</p>
+                    <p>Cours téléchargeables</p>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-4 box-outer">
+                <div class="box music">
+                    <p>5 instruments de musique</p>
+                    <p>18 catégories</p>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-4 box-outer">
+                <div class="box desktop">
+                     <p>Accès illimité 24h/24</p>
+                    <p>Sur ordinateur & tablette</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section even">
+    <div class="container">
+        <h2 class="text-center">Nos cours pour débutants</h2>
+
+    <div class="row">
+
+
+        <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="beginner in vm.beginner">
+            <a href="javascript:;" class="thumbnail">
+                <img ng-src="assets/images/{{beginner.image}}" alt="{{beginner.lesson}}">
+                <p ng-bind="beginner.lesson"></p>
+            </a>
+        </div>
+
+
+    </div>
+    </div>
+
+</section>
+
+
+<section class="section odd">
+    <div class="container">
+        <h2 class="text-center">Nos cours intermédiaires</h2>
+
+    <div class="row">
+
+        <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="intermediate in vm.intermediate">
+            <a href="javascript:;" class="thumbnail">
+                <img ng-src="assets/images/{{intermediate.image}}" alt="{{intermediate.lesson}}">
+                <p ng-bind="intermediate.lesson"></p>
+            </a>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+<section class="section even">
+    <div class="container">
+        <h2 class="text-center">Nos cours avancés</h2>
+
+    <div class="row">
+
+        <div class="col-xs-6 col-sm-4 col-md-2" ng-repeat="advanced in vm.advanced">
+            <a href="javascript:;" class="thumbnail">
+                <img ng-src="assets/images/{{advanced.image}}" alt="{{advanced.lesson}}">
+                <p ng-bind="advanced.lesson"></p>
+            </a>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+

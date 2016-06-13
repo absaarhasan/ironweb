@@ -1,0 +1,575 @@
+/* mixins */
+
+.drop-shadow (@x: 4px, @y: 2px, @blur: 4px, @spread: 4px, @alpha: 0.25) {
+  -webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.opacity(@color,@alpha){
+  @rgba: rgba(red(@color),green(@color),blue(@color),@alpha);
+  @argb: argb(@rgba);
+  background-color: @color;
+  background-color: @rgba;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})";
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})";
+}
+
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start, @stop);
+  background-image: -moz-linear-gradient(@origin, @start, @stop);
+  background-image: -o-linear-gradient(@origin, @start, @stop);
+  background-image: -ms-linear-gradient(@origin, @start, @stop);
+  background-image: linear-gradient(@origin, @start, @stop);
+}
+
+.transition (@transition) {
+  -webkit-transition: @transition;
+  -moz-transition:    @transition;
+  -ms-transition:     @transition;
+  -o-transition:      @transition;
+}
+
+.font-size(@sizeValue){
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  font-size: ~"@{pxValue}px";
+  font-size: ~"@{remValue}rem";
+}
+
+/* reset */
+
+*{
+
+  padding:0;
+  border:0;
+  margin:0;
+}
+
+html {
+
+
+}
+
+body {
+
+  font-family: lato;
+
+}
+
+/* Colours */
+
+@color1: #fff;
+@color2:#749ab4;
+@color3:#5d6b76;
+@color4:#35424c;
+
+/* theme */
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/lato/Lato-Light.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/lato/Lato-LightItalic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/lato/Lato-Regular.ttf');
+  font-weight: bold;
+}
+
+/* theme */
+.btn-iwp {
+
+  .gradient(top, #cc0000, #a70000);
+  .drop-shadow(0px, 0px, 2px, 2px, 0.15);
+  border:1px outset #cc0000;
+  .border-radius(6px);
+  color:@color1;
+
+  font-weight:bold;
+  &:hover{
+    color:@color1;
+
+  }
+
+}
+
+
+/* Nav Bar */
+
+.navbar-iwp {
+
+  .gradient(bottom, #3d4e5b, #4f5f6a);
+  .drop-shadow(4px, 2px, 4px, 4px, 0.15);
+
+  border:0;
+  border-bottom:1px solid #556979;
+
+  .navbar-toggle {
+    margin-top:30px;
+    border-color: @color1;
+
+    .icon-bar {
+
+      background-color: @color1;
+
+    }
+  }
+
+  .navbar-brand {
+
+    font-size:30px;
+    color:@color1;
+    font-weight: bold;
+    padding:5px 0  0 70px;
+    background-image: url("../images/logo_piano.png");
+    background-repeat: no-repeat;
+    margin-top:20px;
+    margin-bottom:20px;
+    height:60px;
+
+    span {
+      display:block;
+      font-size:16px;
+      color:@color2;
+      font-style: italic;
+      margin-top:10px;
+
+    }
+
+  }
+
+  .navbar-nav a {
+      color:@color1;
+
+  }
+
+  .navbar-collapse.collapse {
+    display: block ;
+
+    max-height: 0px;
+    .transition(max-height .3s ease);
+
+    &.in {
+      max-height: 350px;
+
+    }
+  }
+
+  .navbar-nav {
+    margin-top:30px;
+
+
+    a {
+      .border-radius(6px);
+      font-size:20px;
+      font-weight:bold;
+      padding: 6px 15px 12px 15px;
+      line-height:20px;
+      margin-left:5px;
+
+      &:focus, &:hover {
+
+        background-color:#556979;
+      }
+    }
+
+    .active a {
+
+      background-color: @color4;
+
+      border-top: 1px inset #556979;
+      border-bottom: 1px inset #556979;
+
+    }
+
+    .account a {
+
+      .gradient(top, #1f9108, #256717);
+
+      posiiton:relative;
+      padding: 8px 10px 10px 30px;
+      font-size:15px;
+      border-top: 1px inset #256717;
+      border-bottom: 1px inset #256717;
+
+      &:after {
+
+        position: absolute;
+        left:10px;
+        top:11px;
+        width: 14px;
+        height: 14px;
+        content:'';
+        background-image: url("../images/icon_account.png");
+        background-repeat: no-repeat;
+
+      }
+
+      /*
+
+      */
+
+
+    }
+  }
+
+
+}
+
+@media (max-width: 1200px) {
+
+  .navbar-header {
+    float: none;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse.collapse {
+    overflow: hidden !important;
+
+  }
+  .navbar-nav {
+    float: none!important;
+    margin-bottom:20px;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-collapse.collapse.in{
+    display:block !important;
+  }
+
+  .navbar-iwp .navbar-nav a {
+
+    margin-left:0;
+
+  }
+
+  .navbar-iwp .navbar-nav .active a {
+
+    background-color: #556979;
+    border:0;
+
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .navbar-iwp .navbar-brand {
+
+    padding-left:15px;
+    background-image:none;
+  }
+
+
+
+}
+
+/* Jumbotron */
+
+
+.jumbotron {
+
+  background-image: url("../images/jumbo_bg_piano.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+  margin-bottom:0;
+
+  height:460px;
+
+  article {
+
+    margin-top:95px;
+    .opacity(#000, 0.38);
+    .border-radius(10px);
+    padding:5px 30px;
+
+    h2{
+      color:@color1;
+      font-size:30px;
+    }
+
+    p{
+      margin-top:15px;
+      color:@color1;
+      font-size:16px;
+      line-height:22px;
+    }
+
+    .btn {
+
+      font-size:23px;
+      padding:10px 30px;
+      margin-top:15px;
+      margin-bottom:30px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  .jumbotron article {
+
+    margin-top:90px;
+    padding: 0 10px;
+
+    P {
+
+      text-align:center;
+    }
+
+    .btn {
+
+      margin-bottom:20px
+    }
+  }
+
+}
+
+
+
+/* Lessons page */
+
+.section {
+
+  padding-bottom:40px;
+
+  &.top {
+    background-image: url("../images/bgTile_sectionTop.jpg");
+    background-repeat: repeat-x;
+    padding-bottom:20px;
+  }
+
+  &.odd {
+
+    background-color: @color1;
+  }
+
+  &.even {
+
+    background-color: #ededed;
+
+  }
+
+  h2 {
+    font-size:30px;
+    color:#3e4e5c;
+    font-weight:bold;
+    margin:40px 0;
+
+  }
+
+  .box-outer {
+
+    text-align: center;
+  }
+
+  .box {
+    display:inline-block;
+    padding-left: 65px;
+    background-repeat: no-repeat;
+    background-position: 0 10px;
+    margin-bottom:40px;
+
+    &.download {
+
+      background-image: url("../images/icon_downLoad.png");
+    }
+
+    &.music {
+
+      background-image: url("../images/icon_music.png");
+    }
+
+    &.desktop {
+
+      background-image: url("../images/icon_desktop.png");
+    }
+
+    p {
+      text-align: left;
+      color: #221f1f;
+      font-weight:bold;
+      font-size:20px;
+      margin-bottom:0;
+    }
+  }
+
+  .thumbnail {
+
+    border:0;
+    background-color:transparent;
+    padding:0;
+
+    &:hover {
+      border:0;
+    }
+
+    p {
+      text-align:center;
+      color:#221f1f;
+      font-size:20px;
+      margin-top:30px;
+      font-weight:bold;
+    }
+  }
+}
+
+footer{
+
+  .top {
+    padding:25px 0;
+    .gradient(bottom, #3d4e5b, #4f5f6a);
+
+  }
+
+  .security {
+    background-image: url("../images/icon_padlock.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    padding-top:50px;
+    p {
+      font-weight:bold;
+      color:@color1;
+      font-size:15px;
+      margin-bottom:0;
+    }
+  }
+
+  .menu {
+    padding:0 0  0 70px;
+    background-image: url("../images/logo_piano.png");
+    background-repeat: no-repeat;
+
+    p{
+      font-size:20px;
+      color:@color1;
+      font-weight: bold;
+      margin-bottom:0;
+    }
+
+    ul{
+
+      margin-left:0;
+      line-height:0;
+      font-size:0;
+    }
+
+    li{
+
+      padding:0;
+      line-height:26px;
+    }
+
+    a{
+
+      color:@color1;
+      font-size:15px;
+      font-weight:normal;
+      text-decoration: underline;
+      &:hover {
+
+      color:@color1;
+        text-decoration: none;
+      }
+    }
+
+    span{
+      color:@color1;
+      font-size:20px;
+      margin:0 10px;
+
+    }
+
+
+
+  }
+
+  @media (max-width: 992px) {
+    .menu {
+
+      padding:20px 0  20px 0;
+      background-image: none;
+      text-align: center;
+
+    }
+
+  }
+
+  .subscribe{
+    .btn {
+
+      font-size:15px;
+      padding:8px 16px;
+
+    }
+    P{
+      color:@color1;
+      font-size:15px;
+      font-weight:bold;
+      margin-top:11px;
+      margin-bottom:0;
+
+    }
+
+  }
+
+  .bottom{
+
+    padding:20px 0;
+    background-color:#e9eef2;
+
+    ul{
+
+      margin-left:0;
+      line-height:0;
+      font-size:0;
+      margin-bottom:0;
+    }
+
+    li{
+
+      padding:0;
+      line-height:26px;
+    }
+
+    a{
+
+      color:#3e4e5c;
+      font-size:14px;
+      font-weight:bold;
+      text-decoration: underline;
+      &:hover {
+
+        color:#3e4e5c;;
+        text-decoration: none;
+      }
+    }
+
+    span{
+      color:#3e4e5c;;
+      font-size:18px;
+      margin:0 10px;
+      font-weight:bold;
+
+    }
+  }
+
+}

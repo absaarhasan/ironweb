@@ -1,0 +1,85 @@
+{
+  "lessons": [
+    {
+      "beginner": [
+                    {
+                      "lesson": "Guitare éléctrique",
+                      "image": "ln_elec_beg.png"
+                    },
+                    {
+                      "lesson": "Guitare acoustique",
+                      "image": "ln_acc_beg.png"
+                    },
+                    {
+                      "lesson": "Piano",
+                      "image": "ln_piano_beg.png"
+                    },
+                    {
+                      "lesson": "Basse",
+                      "image": "ln_bass_beg.png"
+                    },
+                    {
+                      "lesson": "Batterie",
+                      "image": "ln_drums_beg.png"
+                    },
+                    {
+                      "lesson": "Chant",
+                      "image": "ln_sing_beg.png"
+                    }
+                  ],
+      "intermediate": [
+              {
+                "lesson": "Guitare éléctrique",
+                "image": "ln_elec_int.png"
+              },
+              {
+                "lesson": "Guitare acoustique",
+                "image": "ln_acc_int.png"
+              },
+              {
+                "lesson": "Piano",
+                "image": "ln_piano_int.png"
+              },
+              {
+                "lesson": "Basse",
+                "image": "ln_bass_int.png"
+              },
+              {
+                "lesson": "Batterie",
+                "image": "ln_drums_int.png"
+              },
+              {
+                "lesson": "Chant",
+                "image": "ln_sing_int.png"
+              }
+      ],
+      "advanced": [
+              {
+                "lesson": "Guitare éléctrique",
+                "image": "ln_elec_adv.png"
+              },
+              {
+                "lesson": "Guitare acoustique",
+                "image": "ln_acc_adv.png"
+              },
+              {
+                "lesson": "Piano",
+                "image": "ln_piano_adv.png"
+              },
+              {
+                "lesson": "Basse",
+                "image": "ln_bass_adv.png"
+              },
+              {
+                "lesson": "Batterie",
+                "image": "ln_drums_adv.png"
+              },
+              {
+                "lesson": "Chant",
+                "image": "ln_sing_adv.png"
+              }
+      ]
+
+    }
+  ]
+}
